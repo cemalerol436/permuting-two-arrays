@@ -1,21 +1,23 @@
 
+#Fuction controls two arrays if they can make more than "k" number.
 
+def twoArrays(k, first_array, second_array):
 
-def twoArrays(k,A,B):
+    first_array = [1,2,2,1]
+    first_array.sort()
 
-    A = [1,2,2,1]
-    A.sort()
+    second_array = [3,3,4,4]
+    second_array.sort(reverse=True)
 
-    B = [3,3,4,4]
-    B.sort(reverse=True)
+    len_a = len(first_array)
 
-    l=len(A)
-
-    k = 5
     i = 0
     res = ""
-    while i<l:
-        if A[i]+B[i]>=k:
+
+
+    #In this Loop it check the summarize of two arrays.
+    while i < len_a:
+        if first_array[i]+second_array[i] >= k:
             res = "YES"
         else:
             return "NO"
@@ -23,15 +25,16 @@ def twoArrays(k,A,B):
 
     return res
 
-n = input("n:")
 
-k = input("k:")
+# "k" number is the number sum of arrays suppose to be bigger.
 
-A = list(map(int, input().rstrip().split()))
+k = int(input("k:"))
 
-B = list(map(int, input().rstrip().split()))
+first_array = list(map(int, input().rstrip().split()))
 
-result = twoArrays(k, A, B)
+second_array = list(map(int, input().rstrip().split()))
+
+result = twoArrays(k, first_array, second_array)
 
 print(result)
 
